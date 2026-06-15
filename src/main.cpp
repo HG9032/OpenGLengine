@@ -5,8 +5,8 @@ int main()
     GLengine engine;
 
     Shader shader(
-        "default.vert",
-        "default.frag");
+        "shaders/default.vert",
+        "shaders/default.frag");
 
     Model triangle(shader, glm::vec3(0.0f, 0.0f, 0.0f));
 
