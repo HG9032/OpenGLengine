@@ -25,22 +25,24 @@ glm::mat4 Camera::getProjectionMatrix(float aspectRatio) const
 }
 void Camera::moveForward(float amount)
 {
-    position.z -= amount;
+    glm::vec3 flatFront = glm::normalize(glm::vec3(front.x, 0.0f, front.z));
+    position += flatFront * amount;
 }
 
 void Camera::moveBackward(float amount)
 {
-    position.z += amount;
+    glm::vec3 flatFront = glm::normalize(glm::vec3(front.x, 0.0f, front.z));
+    position -= flatFront * amount;
 }
 
 void Camera::moveLeft(float amount)
 {
-    position.x -= amount;
+    position -= right * amount;
 }
 
 void Camera::moveRight(float amount)
 {
-    position.x += amount;
+    position += right * amount;
 }
 
 glm::mat4 Camera::getViewMatrix() const

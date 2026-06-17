@@ -29,6 +29,11 @@ Window::Window(int InitialWidth, int InitialHeight, const char* InitialTitle) :
 
 	glfwMakeContextCurrent(window);
 
+	int x = (monitorInfo->width - windowWidth) / 2;
+	int y = (monitorInfo->height - windowHeight) / 2;
+
+	glfwSetWindowPos(window, x, y);
+
 	int version = gladLoadGL();
 
 	if (version == 0)
